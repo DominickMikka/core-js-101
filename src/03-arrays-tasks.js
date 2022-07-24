@@ -199,8 +199,13 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  return arr.map((el, index) => {
+    if (index === arr.length - 1) {
+      return `${el.join(',')}`;
+    }
+    return `${el.join(',')}\n`;
+  }).join('');
 }
 
 /**
@@ -509,8 +514,16 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const newArr = [];
+  arr.map((el) => {
+    if (!newArr.includes(el)) {
+      newArr.push(el);
+    }
+    return el;
+  });
+
+  return newArr;
 }
 
 /**
